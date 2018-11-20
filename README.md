@@ -66,4 +66,16 @@ SRR7899205</pre>
 
 First, a subdirectory `sickle` was created in each pool directory: `-bash-4.2$ for folder in LDP*; do mkdir $folder/sickle; done;`
 
-Next the following script was run
+Next the following code was run:
+<pre style="color: silver; background: black;">module load sickle
+for $folder in LDP*; do \
+cat $folder/sample_list | xargs -Iid sickle pe \
+-f $folder/id_1.fastq.gz \
+-r $folder/id_2.fastq.gz \
+-o $folder/sickle/id_forward.trimmed.fastq \
+-p $folder/sickle/id_reverse.trimmed.fastq \
+-s $folder/sickle/id_singles.trimmed.fastq \
+-q 30 \
+-l 70; done;</pre>
+
+The quality score threshold was set to `30` and the length threshold set to `70`.
