@@ -66,6 +66,26 @@ SRR7899205</pre>
 
 First, a subdirectory `sickle` was created in each pool directory: `-bash-4.2$ for folder in LDP*; do mkdir $folder/sickle; done;`
 
+After this, it was verified that all of the samples were present:
+
+<pre style="color: silver; background: black;">wc -l all.run.sampleIDs.txt 
+<strong>165 all.run.sampleIDs.txt</strong>
+
+x=0
+for folder in LDP*; do number_of_samples=$(cat $folder/sample_list | wc -l); ((x=x + number_of_samples)); echo $x; done;
+<strong>23
+46
+69
+92
+93
+117
+140
+163
+164
+165</strong></pre>
+
+We have all of the files.
+
 Next the following code was run:
 <pre style="color: silver; background: black;">module load sickle
 for $folder in LDP*; do \
@@ -79,3 +99,27 @@ cat $folder/sample_list | xargs -Iid sickle pe \
 -l 70; done;</pre>
 
 The quality score threshold was set to `30` and the length threshold set to `70`.
+
+The resulting singles will not be used in the analysis. Let's make a subdirectory `singles` in every `sickle` subdirectory and then move the trimmed singles into those subdirectories:
+<pre style="color: silver; background: black;">
+for folder in LDP*; 
+do mkdir $folder/sickle/singles;
+mv --verbose $folder/sickle/*singles*fastq $folder/sickle/singles;
+done;</pre>
+
+We have 165 paired-end samples, so we should have 330 trimmed fastq files in our sickle directories. Let's check:
+
+<pre style="color: silver; background: black;">x=0
+for folder in LDP*; do count=$(ls $folder/sickle/*fastq | wc -l); x=$((x+count)); echo $x; done;
+<strong>46
+92
+138
+184
+186
+234
+280
+326
+328
+330</strong></pre>
+
+Great. Now we can move onto our 
