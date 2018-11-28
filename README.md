@@ -6,17 +6,8 @@
 <ul class="toc_list">
 <li><a href="#First_Point_Header">1 Overview and directory layout</>
 <li><a href="#Second_Point_Header">2 Quality control using sickle and fastqc</a></li>
-<li><a href="#Third_Point_Header">3 Quality control using sickl</a></li>
-<li><a href="#Fourth_Point_Header">4 Aligning reads to a genome using hisat2</a></li>
-<li><a href="#Fifth_Point_Header">5 Predicting gene models with BRAKER</a></li>
-<li><a href="#Sixth_Point_Header">6 Quality control of gene models using gfacs</a></li>
-	<li><a href="#Seventh_Point_Header">7 Functional annotation using EnTAP</a></li>
-	<ol><li><a href="#uniprot">Statistics from uniprot database search</a></li>
-		<li><a href="#plantfaa">Statistics from ref-seq plant faa 87 database search</a></li>
-		<li><a href="#combined">Integrated statistics for i & ii</a></li>
-		<li><a href="#taxonomics">Taxonomic breakdown of EnTAP run</a></li></ol>
-<li><a href="#Eighth_Point_Header">8 Further statistical breakdown of EnTAP output</a></li>
-	<li><a href="#Ninth_Point_Header">9 Final GTF check</a></li>
+	<ol><li><a href="#sickle">Trimming using sickle</a></li>
+		<li><a href="#fastqc">Quality control statistics using fastqc and multiqc</a></li></ol>
 </ul>
   
   
@@ -122,4 +113,15 @@ for folder in LDP*; do count=$(ls $folder/sickle/*fastq | wc -l); x=$((x+count))
 328
 330</strong></pre>
 
-Great. Now we can move onto our 
+Great. We now concatenate all of our trimmed forward reads and trimmed reverse reads separately for each sample with the following code:
+
+<pre style="color: silver; background: black;">
+for folder in LDP*; 
+do cat $folder/sickle/*forward* >> $folder/sickle/$folder_all_for.fastq; 
+echo COMPLETED FORWARD CONCATENTATION FOR $folder; 
+cat $folder/sickle/*reverse* >> $folder/sickle/$folder_all_rev.fastq; 
+echo COMPLETED REVERSE CONCATENTION FOR $folder; 
+x=$(($x+1)); echo COMPLETED FOLDER $x OUT OF 10; 
+done;</pre>>
+
+
