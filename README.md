@@ -136,4 +136,426 @@ x=0
 for folder in LDP*; do mkdir $folder/sickle/fastqc; for file in $folder/sickle/*fastq; do fastqc $file --outdir=$folder/sickle/fastqc; mkdir $folder/sickle/multiqc; multiqc -f $folder/sickle/fastqc/ -o $folder/sickle/multiqc/;  done; x=$((x+1)); echo FASTQC PROCESSED FOLDER $X OUT OF 10; done;</pre>
 
 Here are the outputs:
+<pre style="color: silver; background: black;">
+<strong>LDP01</strong>
+
+Sample Name
+% Dups
+% GC
+Length
+M Seqs
+SRR7890516_forward.trimmed
+
+10.9%
+
+38%
+
+148 bp
+
+31.5
+SRR7890516_reverse.trimmed
+
+10.3%
+
+38%
+
+137 bp
+
+31.5
+SRR7899197_forward.trimmed
+
+12.1%
+
+38%
+
+148 bp
+
+34.0
+SRR7899197_reverse.trimmed
+
+11.7%
+
+38%
+
+139 bp
+
+34.0
+SRR7899198_forward.trimmed
+
+12.7%
+
+38%
+
+147 bp
+
+28.9
+SRR7899198_reverse.trimmed
+
+12.1%
+
+38%
+
+135 bp
+
+28.9
+SRR7899199_forward.trimmed
+
+13.6%
+
+38%
+
+148 bp
+
+31.6
+SRR7899199_reverse.trimmed
+
+13.1%
+
+38%
+
+139 bp
+
+31.6
+SRR7899200_forward.trimmed
+
+12.7%
+
+38%
+
+148 bp
+
+33.3
+SRR7899200_reverse.trimmed
+
+12.0%
+
+38%
+
+138 bp
+
+33.3
+SRR7899201_forward.trimmed
+
+12.2%
+
+38%
+
+148 bp
+
+32.9
+SRR7899201_reverse.trimmed
+
+11.5%
+
+38%
+
+139 bp
+
+32.9
+SRR7899202_forward.trimmed
+
+10.9%
+
+38%
+
+148 bp
+
+30.8
+SRR7899202_reverse.trimmed
+
+10.2%
+
+38%
+
+139 bp
+
+30.8
+SRR7899203_forward.trimmed
+
+19.8%
+
+38%
+
+148 bp
+
+29.2
+SRR7899203_reverse.trimmed
+
+18.9%
+
+38%
+
+141 bp
+
+29.2
+SRR7899204_forward.trimmed
+
+10.4%
+
+38%
+
+148 bp
+
+27.0
+SRR7899204_reverse.trimmed
+
+10.2%
+
+38%
+
+138 bp
+
+27.0
+SRR7899205_forward.trimmed
+
+12.6%
+
+38%
+
+147 bp
+
+24.6
+SRR7899205_reverse.trimmed
+
+12.2%
+
+38%
+
+137 bp
+
+24.6
+SRR7899206_forward.trimmed
+
+13.6%
+
+38%
+
+148 bp
+
+33.4
+SRR7899206_reverse.trimmed
+
+13.2%
+
+38%
+
+139 bp
+
+33.4
+SRR7899207_forward.trimmed
+
+12.8%
+
+38%
+
+148 bp
+
+32.4
+SRR7899207_reverse.trimmed
+
+12.3%
+
+38%
+
+139 bp
+
+32.4
+SRR7899208_forward.trimmed
+
+13.1%
+
+38%
+
+148 bp
+
+32.6
+SRR7899208_reverse.trimmed
+
+12.7%
+
+38%
+
+139 bp
+
+32.6
+SRR7899209_forward.trimmed
+
+13.3%
+
+38%
+
+148 bp
+
+32.7
+SRR7899209_reverse.trimmed
+
+12.7%
+
+38%
+
+139 bp
+
+32.7
+SRR7899210_forward.trimmed
+
+13.3%
+
+38%
+
+148 bp
+
+32.1
+SRR7899210_reverse.trimmed
+
+12.6%
+
+38%
+
+138 bp
+
+32.1
+SRR7899211_forward.trimmed
+
+13.3%
+
+38%
+
+148 bp
+
+32.4
+SRR7899211_reverse.trimmed
+
+12.6%
+
+38%
+
+139 bp
+
+32.4
+SRR7899212_forward.trimmed
+
+9.9%
+
+38%
+
+148 bp
+
+29.2
+SRR7899212_reverse.trimmed
+
+9.5%
+
+38%
+
+138 bp
+
+29.2
+SRR7899213_forward.trimmed
+
+11.9%
+
+38%
+
+148 bp
+
+30.6
+SRR7899213_reverse.trimmed
+
+11.2%
+
+38%
+
+137 bp
+
+30.6
+SRR7899214_forward.trimmed
+
+10.3%
+
+38%
+
+148 bp
+
+31.3
+SRR7899214_reverse.trimmed
+
+9.5%
+
+38%
+
+137 bp
+
+31.3
+SRR7899215_forward.trimmed
+
+11.4%
+
+38%
+
+148 bp
+
+31.2
+SRR7899215_reverse.trimmed
+
+10.8%
+
+38%
+
+137 bp
+
+31.2
+SRR7899216_forward.trimmed
+
+9.9%
+
+38%
+
+148 bp
+
+31.6
+SRR7899216_reverse.trimmed
+
+9.5%
+
+38%
+
+137 bp
+
+31.6
+SRR7899217_forward.trimmed
+
+10.3%
+
+38%
+
+148 bp
+
+31.9
+SRR7899217_reverse.trimmed
+
+9.7%
+
+38%
+
+138 bp
+
+31.9
+SRR7899218_forward.trimmed
+
+10.1%
+
+38%
+
+148 bp
+
+29.9
+SRR7899218_reverse.trimmed
+
+9.5%
+
+38%
+
+136 bp
+
+29.9
 
