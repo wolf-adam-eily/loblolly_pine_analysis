@@ -125,3 +125,15 @@ x=$(($x+1)); echo COMPLETED FOLDER $x OUT OF 10;
 done;</pre>>
 
 
+<h2 id="fastqc">Quality control using fastqc and multiqc</h2>
+
+Quality control was performed on the concatenated reads with the following code:
+
+<pre style="color: silver; background: black;">
+module load fastqc
+module load multiqc
+x=0
+for folder in LDP*; do mkdir $folder/sickle/fastqc; for file in $folder/sickle/*fastq; do fastqc $file --outdir=$folder/sickle/fastqc; mkdir $folder/sickle/multiqc; multiqc -f $folder/sickle/fastqc/ -o $folder/sickle/multiqc/;  done; x=$((x+1)); echo FASTQC PROCESSED FOLDER $X OUT OF 10; done;</pre>
+
+Here are the outputs:
+
