@@ -149,8 +149,8 @@ array=( $( ls -d LDP*) )
 i=0
 while [ $i -lt ${#array[@]} ];
 do mkdir ${array[$i]}/alignments/;
-srun --cores=8 --mem=25gb bash -c "bwa mem -t 8 /isg/shared/databases/alignerIndex/plant/Pita_2.01/pita.v2.0.1.masked3k2/pita.v2.0.1.masked.5k.fasta \
-${array[$i]}/sickle/all_for.fastq ${array[$i]}/sickle/all_rev.fastq >> ${array[$i]}/alignments/${array[$i]}.aligned.sam" &
+srun --cores=24 --mem=50gb bash -c "bwa mem -t 24 /isg/shared/databases/alignerIndex/plant/Pita/Pita_2.01/index/rawGenome/BWA/Pita ${a
+ray[$i]}/sickle/all_for.fastq ${array[$i]}/sickle/all_rev.fastq >> ${array[$i]}/alignments/${array[$i]}.v2.0.1.aligned.sam" &
 i=$(( $i + 1 ));
 done;
 
